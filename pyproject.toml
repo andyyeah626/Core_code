@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oppomem"
+version = "0.1.0"
+description = "Opponent aware memory components for strategic game agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+ipd = ["axelrod==4.14.0"]
+rps = ["open-spiel"]
+hanabi = ["open-spiel"]
+models = ["torch", "transformers"]
+all = ["axelrod==4.14.0", "open-spiel", "torch", "transformers"]
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+
+[tool.setuptools.packages.find]
+include = ["oppomem*", "benchmarks*"]
